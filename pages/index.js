@@ -7,6 +7,8 @@ export default function HomePage() {
   const [account, setAccount] = useState(undefined);
   const [atm, setATM] = useState(undefined);
   const [balance, setBalance] = useState(undefined);
+  const [gasPriceTransaction, setgasPriceTransaction] = useState(undefined);
+  const [currentBlock, setCurrentBlock] = useState(undefined);
 
   const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
   const atmABI = atm_abi.abi;
@@ -75,6 +77,21 @@ export default function HomePage() {
     }
   }
 
+  const getgasPriceTransaction = async () => {
+    if (atm) {
+      let tx = await atm.getgasPriceTransaction();
+      setgasPriceTransaction(tx.toNumber());
+    }
+  }
+
+  const getCurrentBlock = async () => {
+    if (atm) {
+      let tx = await atm.getCurrentBlock();
+      setCurrentBlock(tx.toNumber());
+    }
+  }
+
+
   const initUser = () => {
     // Check to see if user has Metamask
     if (!ethWallet) {
@@ -96,6 +113,16 @@ export default function HomePage() {
         <p>Your Balance: {balance}</p>
         <button onClick={deposit}>Deposit 1 ETH</button>
         <button onClick={withdraw}>Withdraw 1 ETH</button>
+
+        <p><button onClick={getgasPriceTransaction}>check the current transaction</button></p>
+        {
+          gasPriceTransaction !== undefined && <p> Gas Price Transaction: {gasPriceTransaction} </p>
+        }
+         <p><button onClick={getCurrentBlock}>check the current block running</button></p>
+        {
+          currentBlock !== undefined && <p> Current Block: {currentBlock} </p>
+        }
+
       </div>
     )
   }
@@ -110,6 +137,7 @@ export default function HomePage() {
         .container {
           text-align: center
         }
+          
       `}
       </style>
     </main>
