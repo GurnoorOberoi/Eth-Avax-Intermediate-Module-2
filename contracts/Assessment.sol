@@ -10,6 +10,7 @@ contract Assessment {
     event Deposit(uint256 amount);
     event Withdraw(uint256 amount);
 
+
     constructor(uint initBalance) payable {
         owner = payable(msg.sender);
         balance = initBalance;
@@ -57,4 +58,13 @@ contract Assessment {
         // emit the event
         emit Withdraw(_withdrawAmount);
     }
+
+function getgasPriceTransaction() public view returns(uint){
+    return tx.gasprice;
+}
+
+function getCurrentBlock() public view returns(uint){
+    return block.number;
+}
+
 }
