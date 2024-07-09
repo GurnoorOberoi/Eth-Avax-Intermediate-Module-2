@@ -106,7 +106,10 @@ After cloning the github, you will want to do the following to get the code runn
 After this, the project will be running on your localhost. 
 Typically at http://localhost:3000/
 
-# License
+## Author
+Name: Gurnoor Oberoi
+
+## License
 This project is licensed under the MIT License - see the LICENSE.md file for details
 
 
