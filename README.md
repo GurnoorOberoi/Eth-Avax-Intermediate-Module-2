@@ -20,7 +20,8 @@ Get the current block number on the Ethereum blockchain, providing context for t
 
 ## Get Started
 ### Executing Program 
-To run this program, you can use VS Code or Gitpod , an online Solidity Compilar. To get started, go to the Gitpod Workspace in Gitpod .
+To run this program, you can use Remix, an online Solidity IDE. To get started, go to the Remix website at Remix Ethereum.
+
 
 ``` Solidity
 // SPDX-License-Identifier: UNLICENSED
